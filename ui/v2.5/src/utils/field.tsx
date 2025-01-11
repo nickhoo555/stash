@@ -1,8 +1,11 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import { ExternalLink } from "src/components/Shared/ExternalLink";
 import { TruncatedText } from "src/components/Shared/TruncatedText";
+import { Icon } from "src/components/Shared/Icon";
+import { faCopy } from "@fortawesome/free-solid-svg-icons";
 
 interface ITextField {
   id?: string;
@@ -38,19 +41,15 @@ export const TextField: React.FC<ITextField> = ({
   );
 };
 
-interface IURLField {
-  id?: string;
-  name?: string;
-  abbr?: string | null;
-  value?: string | null;
-  url?: string | null;
-  truncate?: boolean | null;
+interface IURLFieldProps extends IFieldProps {
+  url?: string;
+  value?: string;
   target?: string;
-  // an internal link (uses <Link to={url}>)
   internal?: boolean;
+  showCopy?: boolean;
 }
 
-export const URLField: React.FC<IURLField> = ({
+export const URLField: React.FC<IURLFieldProps> = ({
   id,
   name,
   value,
@@ -59,6 +58,7 @@ export const URLField: React.FC<IURLField> = ({
   truncate,
   target = "_blank",
   internal,
+  showCopy,
 }) => {
   if (!value) {
     return null;
@@ -88,10 +88,29 @@ export const URLField: React.FC<IURLField> = ({
     }
   }
 
+  const handleCopy = () => {
+    if (value) {
+      navigator.clipboard.writeText(value);
+    }
+  };
+
   return (
     <>
       <dt>{abbr ? <abbr title={abbr}>{message}</abbr> : message}</dt>
-      <dd>{maybeRenderUrl()}</dd>
+      <dd className="d-flex field-value-container">
+        {maybeRenderUrl()}
+        {showCopy && value && (
+          <Button
+            variant="secondary"
+            size="sm"
+            className="ml-2"
+            title="复制"
+            onClick={handleCopy}
+          >
+            <Icon icon={faCopy} />
+          </Button>
+        )}
+      </dd>
     </>
   );
 };

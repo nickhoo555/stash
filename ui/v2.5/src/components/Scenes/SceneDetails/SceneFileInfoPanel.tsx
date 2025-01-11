@@ -28,6 +28,7 @@ interface IFileInfoPanelProps {
   onDeleteFile?: () => void;
   onReassign?: () => void;
   loading?: boolean;
+  showCopy?: boolean;
 }
 
 const FileInfoPanel: React.FC<IFileInfoPanelProps> = (
@@ -93,6 +94,7 @@ const FileInfoPanel: React.FC<IFileInfoPanelProps> = (
           url={`file://${props.file.path}`}
           value={`file://${props.file.path}`}
           truncate
+          showCopy
         />
         {renderFileSize()}
         <TextField id="file_mod_time">
@@ -285,6 +287,7 @@ const _SceneFileInfoPanel: React.FC<ISceneFileInfoPanelProps> = (
                   onDeleteFile={() => setDeletingFile(file)}
                   onReassign={() => setReassigningFile(file)}
                   loading={loading}
+                  showCopy
                 />
               </Card.Body>
             </Accordion.Collapse>
@@ -303,6 +306,7 @@ const _SceneFileInfoPanel: React.FC<ISceneFileInfoPanelProps> = (
             url={props.scene.paths.stream}
             value={props.scene.paths.stream}
             truncate
+            showCopy
           />
         )}
         {renderFunscript()}
