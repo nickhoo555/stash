@@ -498,7 +498,7 @@
                 "identifying_scenes": "正在识别{num}{scene}",
                 "include_male_performers": "包括男性表演者",
                 "set_cover_images": "设立封面图",
-                "set_organized": "设定“已整理”标志",
+                "set_organized": "设定"已整理"标志",
                 "source": "源",
                 "source_options": "{source} 选项",
                 "sources": "源",
@@ -509,8 +509,8 @@
                 "tag_skipped_performers": "标记跳过的演员",
                 "tag_skipped_matches": "标记跳过的匹配项",
                 "skip_single_name_performers_tooltip": "如果未启用此选项，则将匹配 Samantha 或 Olga 等经常被通用的表演者",
-                "tag_skipped_performer_tooltip": "创建类似“识别：单名表演者”的标签，您可以在短片标签视图中进行筛选，并选择如何处理这些表演者",
-                "tag_skipped_matches_tooltip": "创建类似“识别：多个匹配项”的标签，您可以在短片标签视图中进行筛选，并手动选择正确的匹配项"
+                "tag_skipped_performer_tooltip": "创建类似"识别：单名表演者"的标签，您可以在短片标签视图中进行筛选，并选择如何处理这些表演者",
+                "tag_skipped_matches_tooltip": "创建类似"识别：多个匹配项"的标签，您可以在短片标签视图中进行筛选，并手动选择正确的匹配项"
             },
             "import_from_exported_json": "导入之前导出的json格式元数据。 删除现有数据库内容。",
             "incremental_import": "从导出的 zip 文件增量导入。",
@@ -573,7 +573,7 @@
         },
         "ui": {
             "abbreviate_counters": {
-                "description": "缩减信息牌和详情页面上的统计数字，比方说“1831”会改成“1.8K”。",
+                "description": "缩减信息牌和详情页面上的统计数字，比方说"1831"会改成"1.8K"。",
                 "heading": "缩减统计数字"
             },
             "basic_settings": "基本设定",
@@ -921,7 +921,7 @@
             "markers": "标记预览",
             "markers_tooltip": "从给出的时间码开始20秒的视频.",
             "override_preview_generation_options": "覆盖预览生成选项",
-            "override_preview_generation_options_desc": "覆盖此操作的“预览生成选项”。默认设置在“系统”->“生成预览”中。",
+            "override_preview_generation_options_desc": "覆盖此操作的"预览生成选项"。默认设置在"系统"->"生成预览"中。",
             "overwrite": "覆盖现有文件",
             "phash": "感知识别码PHash",
             "preview_exclude_end_time_desc": "从短片预览中排除最后 x 秒。可以是一个以秒为单位的值，也可以是百分比（比如2%）。",
@@ -930,7 +930,7 @@
             "preview_exclude_start_time_head": "排除开始时间",
             "preview_generation_options": "预览生成的选项",
             "preview_options": "预览选项",
-            "preview_preset_desc": "预设是用来调节预览生成的大小、质量和编码时间。 “slow”以下的选项不推荐使用。",
+            "preview_preset_desc": "预设是用来调节预览生成的大小、质量和编码时间。 "slow"以下的选项不推荐使用。",
             "preview_preset_head": "调整预设值",
             "preview_seg_count_desc": "设置预览片段中的段数。",
             "preview_seg_count_head": "预览片段段数",
@@ -969,7 +969,7 @@
     },
     "donate": "赞助",
     "dupe_check": {
-        "description": "低于“精确”的准确度需要更长的时间来计算，但使用较低的准确度可能会产生误报。",
+        "description": "低于"精确"的准确度需要更长的时间来计算，但使用较低的准确度可能会产生误报。",
         "duration_diff": "最大持续时间差异",
         "duration_options": {
             "any": "任意",
@@ -1212,7 +1212,7 @@
     "settings": "设置",
     "setup": {
         "confirm": {
-            "almost_ready": "设置就快完成，请确认以下设定。你可以点“回去”去改变任何不正确的东西，如果一切看来都好，请按“确定”去建立你的系统。",
+            "almost_ready": "设置就快完成，请确认以下设定。你可以点"回去"去改变任何不正确的东西，如果一切看来都好，请按"确定"去建立你的系统。",
             "blobs_directory": "二进制文件目录",
             "cache_directory": "缓存目录",
             "configuration_file_location": "配置文件的路径:",
@@ -1227,7 +1227,7 @@
         },
         "errors": {
             "something_went_wrong": "天啊！出错啦！",
-            "something_went_wrong_description": "如果看上去是你输入的问题，请点击“回去”以修正。又或者，在{githubLink}提出这个毛病，或者在{discordLink}寻求帮助。",
+            "something_went_wrong_description": "如果看上去是你输入的问题，请点击"回去"以修正。又或者，在{githubLink}提出这个毛病，或者在{discordLink}寻求帮助。",
             "something_went_wrong_while_setting_up_your_system": "在设立你的系统时出错。以下是错误信息：{error}"
         },
         "folder": {
@@ -1273,14 +1273,14 @@
         "stash_setup_wizard": "Stash 设定向导",
         "success": {
             "getting_help": "获取帮助",
-            "help_links": "如果你遇到麻烦或者有任何的问题或者建议，请在{githubLink}新开一个“问题”，或者寻求社群{discordLink}的帮助。",
+            "help_links": "如果你遇到麻烦或者有任何的问题或者建议，请在{githubLink}新开一个"问题"，或者寻求社群{discordLink}的帮助。",
             "in_app_manual_explained": "鼓励你看看内置的手册，你可以通过屏幕右上方的图标:{icon}来使用它",
             "next_config_step_one": "接下来你会被带到配置页面。此页面会让你设定哪些文件被包括或者不包括，设定用户名和密码来保护你的系统，以及其它的一些选项。",
             "next_config_step_two": "当你对这些选项都满意后，你可以开始按下<code>{localized_task}</code>，然后按下<code>{localized_scan}</code>来开始扫描你的收藏.",
             "open_collective": "看看我们的{open_collective_link}来了解一下你可以如何对Stash的继续发展作出贡献。",
             "support_us": "支持我们",
             "thanks_for_trying_stash": "感激你尝试Stash!",
-            "welcome_contrib": "我们也欢迎以代码的方式来做出贡献(修正毛病，改善和新功能)，测试，毛病报告，改善和请求功能，以及用户支持。详情请看内置手册的“贡献”区。",
+            "welcome_contrib": "我们也欢迎以代码的方式来做出贡献(修正毛病，改善和新功能)，测试，毛病报告，改善和请求功能，以及用户支持。详情请看内置手册的"贡献"区。",
             "your_system_has_been_created": "成功！你的系统建立了！",
             "download_ffmpeg": "下载ffmpeg",
             "missing_ffmpeg": "您缺少所需的<code>ffmpeg</code>二进制文件。您可以通过选中下面的框自动将其下载到您的配置目录中。或者，您可以在系统设置中提供<code>ffmpeg</code>和<code>ffprobe</code>二进制文件的路径。 这些二进制文件必须存在，Stash才能起作用。"
@@ -1298,7 +1298,7 @@
         },
         "welcome_specific_config": {
             "config_path": "Stash会使用以下配置文件的路径:<code>{path}</code>",
-            "next_step": "当你准备好建立一个新系统时，点击“下一个”。",
+            "next_step": "当你准备好建立一个新系统时，点击"下一个"。",
             "unable_to_locate_specified_config": "如果你看到这，就意味着Stash无法用命令行或者环境变量找到配置文件。这个向导将指引你去建立一个新的配置。"
         },
         "welcome_to_stash": "欢迎使用Stash"
@@ -1491,5 +1491,16 @@
     "sub_group_of": "{parent}的子集合",
     "sub_group_order": "子集合排序",
     "sub_groups": "子集合",
-    "include_sub_groups": "包括子组"
+    "include_sub_groups": "包括子组",
+    "users": {
+        "management": "用户管理",
+        "create": "创建用户",
+        "edit": "编辑用户",
+        "delete": "删除用户",
+        "list": "用户列表",
+        "roles": {
+            "admin": "管理员",
+            "user": "普通用户"
+        }
+    }
 }

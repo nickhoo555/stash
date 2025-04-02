@@ -8,6 +8,8 @@ import (
 
 	"github.com/gorilla/sessions"
 	"github.com/stashapp/stash/pkg/logger"
+	"github.com/stashapp/stash/pkg/models"
+	"github.com/stashapp/stash/pkg/utils/bcrypt"
 )
 
 type key int
@@ -47,6 +49,7 @@ var ErrUnauthorized = errors.New("unauthorized")
 type Store struct {
 	sessionStore *sessions.CookieStore
 	config       SessionConfig
+	userReader   models.UserReader
 }
 
 func NewStore(c SessionConfig) *Store {
@@ -62,28 +65,25 @@ func NewStore(c SessionConfig) *Store {
 }
 
 func (s *Store) Login(w http.ResponseWriter, r *http.Request) error {
-	// ignore error - we want a new session regardless
-	newSession, _ := s.sessionStore.Get(r, cookieName)
-
 	username := r.FormValue(usernameFormKey)
 	password := r.FormValue(passwordFormKey)
-
-	// authenticate the user
-	if !s.config.ValidateCredentials(username, password) {
+	
+	// 查找用户
+	user, err := s.userReader.FindByUsername(r.Context(), username)
+	if err != nil {
+		return &InvalidCredentialsError{Username: username}
+	}
+	
+	// 验证密码
+	if err := bcrypt.CompareHashAndPassword([]byte(user.PasswordHash), []byte(password)); err != nil {
 		return &InvalidCredentialsError{Username: username}
 	}
 
-	// since we only have one user, don't leak the name
-	logger.Info("User logged in")
-
-	newSession.Values[userIDKey] = username
-
-	err := newSession.Save(r, w)
-	if err != nil {
-		return err
-	}
-
-	return nil
+	// 创建会话
+	newSession, _ := s.sessionStore.Get(r, cookieName)
+	newSession.Values[userIDKey] = user.ID
+	
+	return newSession.Save(r, w)
 }
 
 func (s *Store) Logout(w http.ResponseWriter, r *http.Request) error {

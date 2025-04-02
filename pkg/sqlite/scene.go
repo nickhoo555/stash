@@ -20,6 +20,7 @@ import (
 	"github.com/stashapp/stash/pkg/models"
 	"github.com/stashapp/stash/pkg/sliceutil"
 	"github.com/stashapp/stash/pkg/utils"
+	"github.com/stashapp/stash/pkg/session"
 )
 
 const (
@@ -1399,4 +1400,20 @@ func getFirstPath(scenes []*models.Scene) string {
 		}
 	}
 	return firstPath
+}
+
+func (qb *SceneStore) Query(ctx context.Context, filter *models.SceneFilterType) ([]*models.Scene, error) {
+	user := session.GetCurrentUser(ctx)
+	
+	// 构建查询
+	query := "SELECT * FROM scenes WHERE 1=1"
+	if !user.IsAdmin {
+		// 非管理员只能查看自己的内容
+		query += " AND user_id = ?"
+		args = append(args, user.ID)
+	}
+	
+	// 添加其他过滤条件...
+	
+	return qb.queryScenes(ctx, query, args)
 }

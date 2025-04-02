@@ -14,6 +14,7 @@ import (
 	"github.com/stashapp/stash/pkg/plugin/hook"
 	"github.com/stashapp/stash/pkg/scraper"
 	"github.com/stashapp/stash/pkg/scraper/stashbox"
+	"github.com/stashapp/stash/pkg/session"
 )
 
 var (
@@ -419,4 +420,16 @@ func firstError(errs []error) error {
 	}
 
 	return nil
+}
+
+func (r *mutationResolver) CreateScene(ctx context.Context, input models.SceneCreateInput) (*models.Scene, error) {
+	user := session.GetCurrentUser(ctx)
+	if user == nil {
+		return nil, errors.New("unauthorized")
+	}
+	
+	// 设置所有者
+	input.UserID = user.ID
+	
+	return r.sceneService.Create(ctx, input)
 }
